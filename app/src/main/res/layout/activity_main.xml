@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.v4.widget.DrawerLayout
+    android:id="@+id/navdrawerLayourawerLayout"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -30,7 +31,7 @@
     </RelativeLayout>
 
     <fragment
-        android:id="@+id/fragment"
+        android:id="@+id/fragment1"
         android:name="com.example.donnchafinlaypj.df1md.MyDrawerFragment"
         android:layout_width="280dp"
         android:layout_height="match_parent"

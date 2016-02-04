@@ -1,34 +1,29 @@
 package com.example.donnchafinlaypj.df1md;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.widget.DrawerLayout;
+import android.support.v4.app.NavUtils;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
-public class MainActivity extends AppCompatActivity {
-
+public class SubActivity extends AppCompatActivity
+{
 	private Toolbar toolbar;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState)
 	{
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_main);
+		setContentView(R.layout.activity_sub);
 		//
 		toolbar = (Toolbar) findViewById(R.id.toolbar);
 		setSupportActionBar(toolbar);
-		//
-		getSupportActionBar().setDisplayShowHomeEnabled(true);
-		//
-		MyDrawerFragment drawerFragment = (MyDrawerFragment) getSupportFragmentManager().findFragmentById(R.id.fragment1);
-		drawerFragment.setup((DrawerLayout) findViewById(R.id.navdrawerLayourawerLayout), toolbar);
-
-		//
-
+		// Display back button in second activity
+		getSupportActionBar().setHomeButtonEnabled(true);
+		getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 	}
+
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu)
 	{
@@ -50,11 +45,10 @@ public class MainActivity extends AppCompatActivity {
 		{
 			return true;
 		}
-		//noinspection SimplifiableIfStatement
-		if (id == R.id.next)
+		// manage back button
+		if (id == android.R.id.home)
 		{
-			Intent i = new Intent(this, SubActivity.class);
-			startActivity(i);
+			NavUtils.navigateUpFromSameTask(this);
 		}
 
 		return super.onOptionsItemSelected(item);
